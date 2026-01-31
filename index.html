@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>БетонТест | Интерактивные испытания прочности бетона</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-hard-hat"></i>
+                    <h1>БетонТест</h1>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#classes" class="nav-link active">Классы бетона</a></li>
+                        <li><a href="#testing" class="nav-link">Испытания</a></li>
+                        <li><a href="#comparisons" class="nav-link">Сравнения</a></li>
+                        <li><a href="#about" class="nav-link">О проекте</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Виртуальная лаборатория испытаний бетона</h2>
+                <p>Интерактивное тестирование прочности бетонных образцов от B10 до B90 с наглядными сравнениями</p>
+                <a href="#classes" class="cta-button">
+                    <i class="fas fa-play-circle"></i> Начать испытания
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основное содержимое -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Секция: Таблица классов бетона -->
+            <section id="classes" class="section concrete-classes-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-th-list"></i> Классы прочности бетона</h2>
+                    <p>Выберите класс бетона для проведения виртуальных испытаний</p>
+                </div>
+                <div class="concrete-grid" id="concreteGrid">
+                    <!-- Динамически заполняется через JS -->
+                </div>
+            </section>
+
+            <!-- Секция: Панель испытаний -->
+            <section id="testing" class="section test-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-flask"></i> Виртуальные испытания</h2>
+                    <p>Проверьте выбранный класс бетона на прочность</p>
+                </div>
+                <div class="test-panel" id="testPanel">
+                    <div class="test-panel-placeholder">
+                        <i class="fas fa-hand-pointer"></i>
+                        <p>Выберите класс бетона из таблицы выше для начала испытаний</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция: Сравнения -->
+            <section id="comparisons" class="section comparison-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-balance-scale"></i> Наглядные сравнения</h2>
+                    <p>Сравните прочность бетона с реальными явлениями</p>
+                </div>
+                <div class="comparison-container" id="comparisonContainer">
+                    <div class="comparison-placeholder">
+                        <i class="fas fa-chart-bar"></i>
+                        <p>Проведите испытание, чтобы увидеть сравнения</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция: Информация -->
+            <section id="about" class="section info-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-info-circle"></i> О проекте</h2>
+                </div>
+                <div class="info-content">
+                    <div class="info-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Цель проекта</h3>
+                        <p>Создание интерактивной образовательной платформы для наглядного изучения свойств бетона и проведения виртуальных испытаний.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Технологии</h3>
+                        <p>Проект использует чистый JavaScript, CSS3 и HTML5 без внешних зависимостей. Все расчеты производятся на стороне клиента.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>Контакты</h3>
+                        <p>Разработчик: Глеб Савченко<br>Email: savchenkogleb2@gmail.com<br>Телефон: +7 (921) 003-25-00</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-hard-hat"></i>
+                    <h3>БетонТест</h3>
+                    <p>Виртуальная лаборатория</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Быстрые ссылки</h4>
+                    <ul>
+                        <li><a href="#classes">Классы бетона</a></li>
+                        <li><a href="#testing">Испытания</a></li>
+                        <li><a href="#comparisons">Сравнения</a></li>
+                        <li><a href="#about">О проекте</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-envelope"></i>
+                       <a href="mailto:savchenkogleb2@gmail.com" class="contact-link">
+                           savchenkogleb2@gmail.com
+                       </a>
+                    </p>
+                    <p><i class="fas fa-phone"></i>
+                       <a href="tel:+79210032500" class="contact-link">
+                           +7 (921) 003-25-00
+                       </a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 БетонТест. Все права защищены. Данные приведены для учебных целей.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно с деталями -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Детали класса бетона</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Заполняется динамически -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="js/concreteData.js"></script>
+    <script src="js/testEngine.js"></script>
+    <script src="js/comparisonModule.js"></script>
+    <script src="js/uiController.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
