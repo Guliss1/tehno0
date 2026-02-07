@@ -1,454 +1,169 @@
-/* Сетка классов бетона */
-.concrete-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
+/* Дополнительные стили для таблицы */
 
-.concrete-card {
-    background: var(--white);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    cursor: pointer;
-    border: 2px solid transparent;
-}
-
-.concrete-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--secondary);
-}
-
-.concrete-card.selected {
-    border-color: var(--secondary);
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-}
-
-.class-header {
-    padding: 1.5rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.class-name {
-    font-size: 1.8rem;
-    font-weight: 700;
-    padding: 0.5rem 1rem;
-    background: rgba(255,255,255,0.2);
-    border-radius: var(--radius-sm);
-}
-
-.class-strength {
-    font-size: 1.2rem;
-    font-weight: 600;
-    background: rgba(255,255,255,0.1);
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-sm);
-}
-
-.class-info {
-    padding: 1.5rem;
-}
-
-.class-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary);
-}
-
-.class-info p {
-    color: var(--gray);
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-}
-
-.class-actions {
-    padding: 0 1.5rem 1.5rem;
-}
-
-.select-btn {
-    width: 100%;
-    padding: 0.75rem;
-    background: var(--secondary);
-    color: var(--white);
-    border: none;
-    border-radius: var(--radius-sm);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.select-btn:hover {
-    background: #2980b9;
-}
-
-.select-btn i {
-    font-size: 0.9rem;
-}
-
-/* Панель испытаний */
-.test-panel {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    box-shadow: var(--shadow-md);
-    margin-top: 1rem;
-}
-
-.test-panel-placeholder {
-    text-align: center;
-    padding: 3rem;
-    color: var(--gray);
-}
-
-.test-panel-placeholder i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--light);
-}
-
-.test-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--light);
-}
-
-.test-header h3 {
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.test-stats {
-    display: flex;
-    gap: 2rem;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--secondary);
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: var(--gray);
-}
-
-/* Визуализация испытания */
-.test-visualization {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
+/* Полная таблица */
+.full-table-container {
+    overflow-x: auto;
     margin: 2rem 0;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
 }
 
-.cube-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.cube {
-    width: 120px;
-    height: 120px;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: rotateX(-30deg) rotateY(-45deg);
-    transition: transform 1s ease;
-}
-
-.cube-face {
-    position: absolute;
+.concrete-table {
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    border: 2px solid var(--dark);
-}
-
-.cube-face.front  { transform: translateZ(60px); background: #3498db; }
-.cube-face.back   { transform: rotateY(180deg) translateZ(60px); background: #2980b9; }
-.cube-face.left   { transform: rotateY(-90deg) translateZ(60px); background: #1f618d; }
-.cube-face.right  { transform: rotateY(90deg) translateZ(60px); background: #154360; }
-.cube-face.top    { transform: rotateX(90deg) translateZ(60px); background: #5dade2; }
-.cube-face.bottom { transform: rotateX(-90deg) translateZ(60px); background: #85c1e9; }
-
-.cube.cracked .cube-face {
-    background: linear-gradient(45deg, #f39c12 0%, #e74c3c 50%, #f39c12 100%);
-    animation: crack 0.5s ease-in-out;
-}
-
-.cube.destroyed .cube-face {
-    background: #e74c3c;
-    transform: translateZ(60px) rotate(45deg) scale(0.8);
-    animation: collapse 1s ease-in-out;
-}
-
-.cube-state {
-    margin-top: 1rem;
-    font-weight: 600;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-sm);
-    background: var(--light);
-}
-
-/* Прогресс-бар */
-.progress-container {
-    background: var(--light);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-}
-
-.progress-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.current-load {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-.target-load {
-    font-size: 1.2rem;
-    color: var(--gray);
-}
-
-.progress-bar-container {
-    height: 20px;
-    background: var(--light);
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 1.5rem 0;
-    position: relative;
-}
-
-.progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--success) 0%, var(--warning) 50%, var(--danger) 100%);
-    width: 0%;
-    transition: width 0.1s linear;
-    position: relative;
-}
-
-.progress-bar::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 3px;
+    border-collapse: collapse;
     background: var(--white);
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
-.progress-labels {
-    display: flex;
-    justify-content: space-between;
-    color: var(--gray);
-    font-size: 0.9rem;
-}
-
-/* Кнопки управления */
-.test-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.test-btn {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.test-btn.primary {
-    background: var(--secondary);
+.concrete-table th {
+    background: var(--primary);
     color: var(--white);
-}
-
-.test-btn.primary:hover:not(:disabled) {
-    background: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-.test-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.test-result {
-    background: var(--light);
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
-    border-left: 4px solid var(--success);
-}
-
-.result-message {
-    font-size: 1.1rem;
-    color: var(--primary);
-}
-
-/* Модуль сравнений */
-.comparison-container {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    box-shadow: var(--shadow-md);
-    margin-top: 1rem;
-}
-
-.comparison-placeholder {
-    text-align: center;
-    padding: 3rem;
-    color: var(--gray);
-}
-
-.comparison-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.comparison-btn {
     padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.concrete-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--light);
+}
+
+.concrete-table tr:hover {
+    background: rgba(52, 152, 219, 0.05);
+}
+
+.class-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-sm);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.table-info {
     background: var(--light);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Контролы фильтрации */
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
     border: 2px solid var(--light);
+    background: var(--white);
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: var(--transition);
-    text-align: left;
-    font-size: 1rem;
+    font-weight: 500;
 }
 
-.comparison-btn:hover {
+.filter-btn:hover {
     border-color: var(--secondary);
     background: rgba(52, 152, 219, 0.1);
 }
 
-.comparison-btn.selected {
+.filter-btn.active {
+    background: var(--secondary);
+    color: var(--white);
     border-color: var(--secondary);
-    background: rgba(52, 152, 219, 0.2);
 }
 
-.comparison-details {
+/* Статистика в герое */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    color: var(--white);
+}
+
+/* Информация о стандартах */
+.standards-info {
     background: var(--light);
-    border-radius: var(--radius-md);
     padding: 2rem;
+    border-radius: var(--radius-md);
     margin-top: 2rem;
 }
 
-.details-header {
+.standards-info h3 {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 1rem;
-}
-
-.details-header h4 {
     color: var(--primary);
 }
 
-.comparison-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
+.standards-info ul {
+    list-style: none;
+    padding-left: 1rem;
 }
 
-.comparison-text p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.comparison-calculation {
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
-}
-
-.comparison-calculation h5 {
-    color: var(--primary);
+.standards-info li {
     margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
-.comparison-calculation code {
-    background: var(--light);
-    padding: 0.5rem;
-    border-radius: var(--radius-sm);
-    font-family: 'Courier New', monospace;
-    display: block;
-    margin-top: 0.5rem;
-}
-
-/* Информационные карточки */
-.info-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.info-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    text-align: center;
-    transition: var(--transition);
-}
-
-.info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-}
-
-.info-card i {
-    font-size: 2.5rem;
+.standards-info li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
     color: var(--secondary);
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
-.info-card h3 {
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.info-card p {
-    color: var(--gray);
+/* Адаптивность таблицы */
+@media (max-width: 768px) {
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .concrete-table th,
+    .concrete-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-btn {
+        width: 100%;
+    }
 }
