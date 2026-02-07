@@ -21,7 +21,8 @@
                 </div>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="#classes" class="nav-link active">Классы бетона</a></li>
+                        <li><a href="#classes" class="nav-link active">Таблица классов</a></li>
+                        <li><a href="#interactive" class="nav-link">Интерактивная таблица</a></li>
                         <li><a href="#testing" class="nav-link">Испытания</a></li>
                         <li><a href="#comparisons" class="nav-link">Сравнения</a></li>
                         <li><a href="#about" class="nav-link">О проекте</a></li>
@@ -39,8 +40,22 @@
         <div class="container">
             <div class="hero-content">
                 <h2>Виртуальная лаборатория испытаний бетона</h2>
-                <p>Интерактивное тестирование прочности бетонных образцов от B10 до B90 с наглядными сравнениями</p>
-                <a href="#classes" class="cta-button">
+                <p>Интерактивное тестирование прочности бетонных образцов от B3.5 до B80 с наглядными сравнениями</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">21</span>
+                        <span class="stat-label">класс бетона</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.5-102.8</span>
+                        <span class="stat-label">МПа прочности</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">M50-M1000</span>
+                        <span class="stat-label">марки бетона</span>
+                    </div>
+                </div>
+                <a href="#interactive" class="cta-button">
                     <i class="fas fa-play-circle"></i> Начать испытания
                 </a>
             </div>
@@ -50,14 +65,47 @@
     <!-- Основное содержимое -->
     <main class="main-content">
         <div class="container">
-            <!-- Секция: Таблица классов бетона -->
-            <section id="classes" class="section concrete-classes-section">
+            <!-- Секция: Полная таблица классов -->
+            <section id="classes" class="section table-section">
                 <div class="section-header">
-                    <h2><i class="fas fa-th-list"></i> Классы прочности бетона</h2>
+                    <h2><i class="fas fa-table"></i> Полная таблица классов бетона</h2>
+                    <p>Сравнительные характеристики всех классов бетона по ГОСТ</p>
+                </div>
+                <div class="full-table-container">
+                    <table class="concrete-table">
+                        <thead>
+                            <tr>
+                                <th>Класс бетона</th>
+                                <th>Ближайшая марка</th>
+                                <th>Прочность, МПа</th>
+                                <th>Прочность, кг/см²</th>
+                                <th>Эквивалент</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fullTableBody">
+                            <!-- Заполняется через JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-info">
+                    <p><i class="fas fa-info-circle"></i> Данные соответствуют ГОСТ 26633-2015 "Бетоны тяжелые и мелкозернистые"</p>
+                </div>
+            </section>
+
+            <!-- Секция: Интерактивная таблица -->
+            <section id="interactive" class="section interactive-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-th-list"></i> Интерактивная таблица</h2>
                     <p>Выберите класс бетона для проведения виртуальных испытаний</p>
                 </div>
                 <div class="concrete-grid" id="concreteGrid">
                     <!-- Динамически заполняется через JS -->
+                </div>
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">Все классы</button>
+                    <button class="filter-btn" data-filter="low">Низкая прочность (&lt;20 МПа)</button>
+                    <button class="filter-btn" data-filter="medium">Средняя прочность (20-50 МПа)</button>
+                    <button class="filter-btn" data-filter="high">Высокая прочность (&gt;50 МПа)</button>
                 </div>
             </section>
 
@@ -96,20 +144,28 @@
                 </div>
                 <div class="info-content">
                     <div class="info-card">
-                        <i class="fas fa-bullseye"></i>
-                        <h3>Цель проекта</h3>
-                        <p>Создание интерактивной образовательной платформы для наглядного изучения свойств бетона и проведения виртуальных испытаний.</p>
+                        <i class="fas fa-database"></i>
+                        <h3>База данных</h3>
+                        <p>Проект использует данные из ГОСТ 26633-2015. Все значения прочности соответствуют стандартам.</p>
                     </div>
                     <div class="info-card">
-                        <i class="fas fa-cogs"></i>
-                        <h3>Технологии</h3>
-                        <p>Проект использует чистый JavaScript, CSS3 и HTML5 без внешних зависимостей. Все расчеты производятся на стороне клиента.</p>
+                        <i class="fas fa-calculator"></i>
+                        <h3>Расчёты</h3>
+                        <p>Все сравнения основаны на физических формулах: P = F/S, где P - давление, F - сила, S - площадь.</p>
                     </div>
                     <div class="info-card">
                         <i class="fas fa-user-tie"></i>
                         <h3>Контакты</h3>
                         <p>Разработчик: Глеб Савченко<br>Email: savchenkogleb2@gmail.com<br>Телефон: +7 (921) 003-25-00</p>
                     </div>
+                </div>
+                <div class="standards-info">
+                    <h3><i class="fas fa-book"></i> Используемые стандарты</h3>
+                    <ul>
+                        <li>ГОСТ 26633-2015 "Бетоны тяжелые и мелкозернистые"</li>
+                        <li>СП 63.13330.2018 "Бетонные и железобетонные конструкции"</li>
+                        <li>ГОСТ 7473-2010 "Смеси бетонные"</li>
+                    </ul>
                 </div>
             </section>
         </div>
@@ -122,12 +178,13 @@
                 <div class="footer-logo">
                     <i class="fas fa-hard-hat"></i>
                     <h3>БетонТест</h3>
-                    <p>Виртуальная лаборатория</p>
+                    <p>Научно-образовательный проект</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Быстрые ссылки</h4>
+                    <h4>Разделы</h4>
                     <ul>
-                        <li><a href="#classes">Классы бетона</a></li>
+                        <li><a href="#classes">Таблица классов</a></li>
+                        <li><a href="#interactive">Интерактивная таблица</a></li>
                         <li><a href="#testing">Испытания</a></li>
                         <li><a href="#comparisons">Сравнения</a></li>
                         <li><a href="#about">О проекте</a></li>
@@ -135,20 +192,21 @@
                 </div>
                 <div class="footer-contact">
                     <h4>Контакты</h4>
-                    <p><i class="fas fa-envelope"></i>
+                    <p><i class="fas fa-envelope"></i> 
                        <a href="mailto:savchenkogleb2@gmail.com" class="contact-link">
                            savchenkogleb2@gmail.com
                        </a>
                     </p>
-                    <p><i class="fas fa-phone"></i>
+                    <p><i class="fas fa-phone"></i> 
                        <a href="tel:+79210032500" class="contact-link">
                            +7 (921) 003-25-00
                        </a>
                     </p>
+                    <p><i class="fas fa-calendar"></i> Актуально на 2026 год</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 БетонТест. Все права защищены. Данные приведены для учебных целей.</p>
+                <p>&copy; 2026 БетонТест. Все права защищены. Данные приведены в соответствии с ГОСТ.</p>
                 <div class="footer-social">
                     <a href="#" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
                     <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
@@ -157,19 +215,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Модальное окно с деталями -->
-    <div class="modal" id="detailModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">Детали класса бетона</h3>
-                <button class="modal-close" id="modalClose">&times;</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Заполняется динамически -->
-            </div>
-        </div>
-    </div>
 
     <!-- Скрипты -->
     <script src="js/concreteData.js"></script>
